@@ -1,0 +1,4 @@
+#* * * * * root cd /app/www/crm/aboitiz-uat; /usr/local/bin/php -f cron.php > /dev/null 2>&1
+* * * * * cd www/aboitiz-uat; php -f cron.php > /dev/null 2>&1
+* * * * * chmod 775 -R www/*
+* * * * * chown www-data:1000 -R www/*

@@ -1,0 +1,21 @@
+suitecrm:
+  image: suite78-docker:latest
+  command: apache2-foreground
+  links:
+    - mysql_crm
+  volumes:
+    - .:/app
+  ports:
+    - "8083:80"
+
+mysql_crm:
+  image: mysql:5.6
+  ports:
+    - "3307:3306"
+  environment:
+    - MYSQL_ROOT_PASSWORD=suitecrm
+    - MYSQL_USER=suitecrm
+    - MYSQL_PASSWORD=suitecrm
+  volumes:
+    - ./docker/config/mysql:/etc/mysql/conf.d
+    - ./docker/data/mysql:/var/lib/mysql
